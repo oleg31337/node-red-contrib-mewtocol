@@ -7,6 +7,7 @@ At the moment only few read nodes are implemented:
 - RD - Read Registers
 - RCS - Read single Contact binary value
 - RCC - Read Contact values in 16bit integers
+- RT - Read PLC status
 
 ... more are coming soon ...
 

@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-mewtocol",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "description": "Panasonic PLC MEWTOCOL COM over TCP implementation for Node-Red",
   "main": "node",
@@ -11,7 +11,7 @@
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "jsmewtocol": "^0.0.1",
-    "net": "^1.0.*"
+    "net": "^1.0.2"
   },
   "keywords": [
     "node-red",
@@ -22,7 +22,7 @@
     "automation"
   ],
   "engines": {
-    "node": ">=12"
+    "node": ">=12.0.0"
   },
   "node-red": {
     "version": ">=2",
@@ -30,13 +30,13 @@
       "Mewtocol-Client": "mewtocol/mewtocol-client.js",
       "Mewtocol-RD": "mewtocol/mewtocol-rd.js",
       "Mewtocol-RCC": "mewtocol/mewtocol-rcc.js",
-      "Mewtocol-RCS": "mewtocol/mewtocol-rcs.js"
+      "Mewtocol-RCS": "mewtocol/mewtocol-rcs.js",
+      "Mewtocol-RT": "mewtocol/mewtocol-rt.js"
     }
   },
   "files": [
     "mewtocol/**/*"
   ],
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oleg31337/node-red-contrib-mewtocol.git"

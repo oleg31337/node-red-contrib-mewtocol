@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    RED.nodes.registerType('mewtocol-rt',{
+        category: 'Mewtocol',
+        color: '#3FADB5',
+        defaults: {
+            name: {value:""},
+            server: {value:"", type:"mewtocol-client", required:true},
+            station: {value:1}
+        },
+        inputs:1,
+        outputs:2,
+        inputLabels: ["command"],
+        outputLabels:["output","error"],
+        icon: "font-awesome/fa-microchip",
+        label: function() {
+            return this.name||"mewtocol-rt";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="mewtocol-rt">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-microchip"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-station"><i class="fa fa-tag"></i> Station</label>
+        <input type="text" id="node-input-station" placeholder="Station">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="mewtocol-rt">
+    <p>Read PLC status.</p>
+    <p>You can use message parameters to specify station number: msg.station</p>
+    <p>Parameters passed in msg will always take preference over settings in node-red gui</p>
+    <p>All message parameters will be retained except msg.payload which contains returned data from PLC</p>
+    <p>In case of error there will be error message sent to second output</p>
+</script>
