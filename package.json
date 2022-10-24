@@ -21,6 +21,9 @@
     "plc",
     "automation"
   ],
+  "engines": {
+    "node": ">=12"
+  },
   "node-red": {
     "version": ">=2",
     "nodes": {
