@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-mewtocol",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "description": "Panasonic PLC MEWTOCOL COM over TCP implementation for Node-Red",
   "main": "node",
@@ -10,7 +10,7 @@
   "author": "Oleg Aroslanov",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "jsmewtocol": "^0.0.1",
+    "jsmewtocol": "^0.0.2",
     "net": "^1.0.2"
   },
   "keywords": [
@@ -31,7 +31,8 @@
       "Mewtocol-RD": "mewtocol/mewtocol-rd.js",
       "Mewtocol-RCC": "mewtocol/mewtocol-rcc.js",
       "Mewtocol-RCS": "mewtocol/mewtocol-rcs.js",
-      "Mewtocol-RT": "mewtocol/mewtocol-rt.js"
+      "Mewtocol-RT": "mewtocol/mewtocol-rt.js",
+      "Mewtocol-RR": "mewtocol/mewtocol-rr.js"
     }
   },
   "files": [

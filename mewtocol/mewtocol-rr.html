@@ -1,0 +1,53 @@
+<script type="text/javascript">
+    RED.nodes.registerType('mewtocol-rr',{
+        category: 'Mewtocol',
+        color: '#3FADB5',
+        defaults: {
+            name: {value:""},
+            server: {value:"", type:"mewtocol-client", required:true},
+            station: {value:1},
+            startaddress: {value:""},
+            endaddress: {value:""},
+        },
+        inputs:1,
+        outputs:2,
+        inputLabels: ["command"],
+        outputLabels:["output","error"],
+        icon: "font-awesome/fa-microchip",
+        label: function() {
+            return this.name||"mewtocol-rr";
+        }
+
+    });
+</script>
+
+<script type="text/html" data-template-name="mewtocol-rr">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-microchip"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-station"><i class="fa fa-tag"></i> Station</label>
+        <input type="text" id="node-input-station" placeholder="Station">
+    </div>
+    <div class="form-row">
+        <label for="node-input-startaddress"><i class="fa fa-arrow-circle-left"></i> Start address</label>
+        <input type="text" id="node-input-startaddress" placeholder="Start address">
+    </div>
+    <div class="form-row">
+        <label for="node-input-endaddress"><i class="fa fa-arrow-circle-right"></i> End address</label>
+        <input type="text" id="node-input-endaddress" placeholder="End address">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="mewtocol-rr">
+    <p>Read system register in 16bit word units. Specify register addresses to read 16bit int values from.</p>
+    <p>You can use message parameters to specify station number and addresses: msg.station, msg.startaddress, msg.endaddress</p>
+    <p>Parameters passed in msg will always take preference over settings in node-red gui</p>
+    <p>All message parameters will be retained except msg.payload which contains returned data from PLC</p>
+    <p>In case of error there will be error message sent to second output</p>
+</script>
