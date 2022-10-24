@@ -1,5 +1,5 @@
 {
-  "name": "red-contrib-mewtocol",
+  "name": "node-red-contrib-mewtocol",
   "version": "0.0.1",
   "private": false,
   "description": "Panasonic PLC MEWTOCOL COM over TCP implementation for Node-Red",
