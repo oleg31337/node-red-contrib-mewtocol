@@ -1,0 +1,37 @@
+<script type="text/javascript">
+    RED.nodes.registerType('mewtocol-client',{
+        category: 'config',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+            host: {value:"", required:true, validate:RED.validators.regex(/^((\d{1,3}\.){3}\d{1,3})|([a-zA-Z0-9\-\.]+)$/)},
+            port: {value:9094, required:true, validate:RED.validators.number()},
+            timeout: {value:5000, required:true, validate:RED.validators.number()},
+        },
+        label: function() {
+            return this.name||this.host+":"+this.port;
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="mewtocol-client">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-host"><i class="fa fa-tag"></i> Host</label>
+        <input type="text" id="node-config-input-host" placeholder="localhost">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="fa fa-tag"></i> Port</label>
+        <input type="text" id="node-config-input-port" placeholder=9094>
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-timeout"><i class="fa fa-hourglass-end"></i> Timeout</label>
+        <input type="text" id="node-config-input-timeout" placeholder=5000>
+</script>
+
+<script type="text/html" data-help-name="mewtocol-client">
+    <p>Mewtocol server config</p>
+</script>

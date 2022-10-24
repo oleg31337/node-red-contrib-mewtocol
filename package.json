@@ -1,0 +1,45 @@
+{
+  "name": "red-contrib-mewtocol",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Panasonic PLC MEWTOCOL COM over TCP implementation for Node-Red",
+  "main": "node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oleg Aroslanov",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "jsmewtocol": "^0.0.1",
+    "net": "^1.0.*"
+  },
+  "keywords": [
+    "node-red",
+    "plusfornodered",
+    "mewtocol",
+    "panasonic",
+    "plc",
+    "automation"
+  ],
+  "node-red": {
+    "version": ">=2",
+    "nodes": {
+      "Mewtocol-Client": "mewtocol/mewtocol-client.js",
+      "Mewtocol-RD": "mewtocol/mewtocol-rd.js",
+      "Mewtocol-RCC": "mewtocol/mewtocol-rcc.js",
+      "Mewtocol-RCS": "mewtocol/mewtocol-rcs.js"
+    }
+  },
+  "files": [
+    "mewtocol/**/*"
+  ],
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oleg31337/node-red-contrib-mewtocol.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oleg31337/node-red-contrib-mewtocol/issues"
+  },
+  "homepage": "https://github.com/oleg31337/node-red-contrib-mewtocol#readme"
+}

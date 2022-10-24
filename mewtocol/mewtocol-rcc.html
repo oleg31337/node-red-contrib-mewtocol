@@ -1,0 +1,72 @@
+<script type="text/javascript">
+    RED.nodes.registerType('mewtocol-rcc',{
+        category: 'Mewtocol',
+        color: '#3FADB5',
+        defaults: {
+            name: {value:""},
+            server: {value:"", type:"mewtocol-client", required:true},
+            station: {value:1},
+            area: {value:"X"},
+            startaddress: {value:""},
+            endaddress: {value:""},
+        },
+        inputs:1,
+        outputs:2,
+        inputLabels: ["command"],
+        outputLabels:["output","error"],
+        icon: "font-awesome/fa-microchip",
+        label: function() {
+            return this.name||"mewtocol-rcc";
+        },
+        oneditprepare: function() {
+            $("#node-input-area").typedInput({
+            types: [
+                {
+                    value: "area",
+                    options: [
+                        { value: "X", label: "X"},
+                        { value: "Y", label: "Y"},
+                        { value: "R", label: "R"},
+                        { value: "L", label: "L"}
+                    ]
+                }
+            ]
+            });
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="mewtocol-rcc">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-microchip"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-station"><i class="fa fa-tag"></i> Station</label>
+        <input type="text" id="node-input-station" placeholder="Station">
+    </div>
+    <div class="form-row">
+        <label for="node-input-area"><i class="fa fa-map"></i> Memory area</label>
+        <input type="text" id="node-input-area" placeholder="Memory area">
+    </div>
+    <div class="form-row">
+        <label for="node-input-startaddress"><i class="fa fa-arrow-circle-left"></i> Start address</label>
+        <input type="text" id="node-input-startaddress" placeholder="Start address">
+    </div>
+    <div class="form-row">
+        <label for="node-input-endaddress"><i class="fa fa-arrow-circle-right"></i> End address</label>
+        <input type="text" id="node-input-endaddress" placeholder="End address">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="mewtocol-rcc">
+    <p>Read contact values in 16bit word units. Specify contact memory areas to read 16bit values from.</p>
+    <p>You can use message parameters to specify station number, memory area and addresses: msg.station, msg.area, msg.startaddress, msg.endaddress</p>
+    <p>Parameters passed in msg will always take preference over settings in node-red gui</p>
+    <p>All message parameters will be retained except msg.payload which contains returned data from PLC</p>
+    <p>In case of error, an error message will be sent to the second output</p>
+</script>
