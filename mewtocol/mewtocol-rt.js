@@ -6,8 +6,15 @@ module.exports = function(RED) {
         node.on('input', function(msg) {
             node.server = RED.nodes.getNode(config.server);
             var mewclient = new MewClient(node.server.host, node.server.port, node.server.timeout);
-            node.status({fill:"green",shape:"dot",text:"connected"});
-            var station = msg.station?msg.station:config.station;
+            mewclient.on('connect', ()=>{
+                node.status({fill:"green",shape:"dot",text:"connected"});
+            });
+            mewclient.on('disconnect', ()=>{
+                node.status({fill:"grey",shape:"ring",text:"disconnected"});
+            });
+            mewclient.on('error', ()=>{
+                node.status({fill:"red",shape:"dot",text:"error"});
+            });            var station = msg.station?msg.station:config.station;
             if (!station) {
                 node.status({fill:"red",shape:"dot",text:"missing parameters"});
                 node.error((config.name||"mewtocol-rt")+": Missing parameters");
@@ -17,7 +24,6 @@ module.exports = function(RED) {
             .then(function(data){
                 msg.payload=data;
                 node.send([msg,null]);
-                node.status({fill:"grey",shape:"ring",text:"disconnected"});
                 return mewclient.destroy();
             })
             .catch(function(err){
