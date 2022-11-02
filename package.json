@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-mewtocol",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "private": false,
   "description": "Panasonic PLC MEWTOCOL COM over TCP implementation for Node-Red",
   "main": "node",
@@ -8,9 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Oleg Aroslanov",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT-feh",
   "dependencies": {
-    "jsmewtocol": "^0.0.3"
+    "jsmewtocol": "^0.0.5"
   },
   "keywords": [
     "node-red",
