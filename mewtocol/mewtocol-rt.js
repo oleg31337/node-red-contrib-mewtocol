@@ -14,7 +14,8 @@ module.exports = function(RED) {
             });
             mewclient.on('error', ()=>{
                 node.status({fill:"red",shape:"dot",text:"error"});
-            });            var station = msg.station?msg.station:config.station;
+            });
+            var station = msg.station?msg.station:config.station;
             if (!station) {
                 node.status({fill:"red",shape:"dot",text:"missing parameters"});
                 node.error((config.name||"mewtocol-rt")+": Missing parameters");

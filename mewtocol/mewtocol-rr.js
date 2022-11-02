@@ -14,7 +14,8 @@ module.exports = function(RED) {
             });
             mewclient.on('error', ()=>{
                 node.status({fill:"red",shape:"dot",text:"error"});
-            });            var station = msg.station?msg.station:config.station;
+            });
+            var station = msg.station?msg.station:config.station;
             var startaddress=msg.startaddress?msg.startaddress:config.startaddress;
             var endaddress=msg.endaddress?msg.endaddress:config.endaddress;
             if (!(station && startaddress && endaddress)) {
