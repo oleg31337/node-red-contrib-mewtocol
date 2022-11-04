@@ -8,6 +8,7 @@
             station: {value:1},
             startaddress: {value:""},
             endaddress: {value:""},
+            sendonerror: {value:true}
         },
         inputs:1,
         outputs:2,
@@ -23,24 +24,29 @@
 
 <script type="text/html" data-template-name="mewtocol-rk">
     <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <label style="min-width:110px" for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-server"><i class="fa fa-microchip"></i> Server</label>
+        <label style="min-width:110px" for="node-input-server"><i class="fa fa-microchip"></i> Server</label>
         <input type="text" id="node-input-server" placeholder="Server">
     </div>
     <div class="form-row">
-        <label for="node-input-station"><i class="fa fa-tag"></i> Station</label>
+        <label style="min-width:110px" for="node-input-station"><i class="fa fa-tag"></i> Station</label>
         <input type="text" id="node-input-station" placeholder="Station">
     </div>
     <div class="form-row">
-        <label for="node-input-startaddress"><i class="fa fa-arrow-circle-left"></i> Start address</label>
+        <label style="min-width:110px" for="node-input-startaddress"><i class="fa fa-arrow-circle-left"></i> Start address</label>
         <input type="text" id="node-input-startaddress" placeholder="Start address">
     </div>
     <div class="form-row">
-        <label for="node-input-endaddress"><i class="fa fa-arrow-circle-right"></i> End address</label>
+        <label style="min-width:110px" for="node-input-endaddress"><i class="fa fa-arrow-circle-right"></i> End address</label>
         <input type="text" id="node-input-endaddress" placeholder="End address">
+    </div>
+    <div class="form-row">
+        <label style="min-width:265px" for="node-input-sendonerror"><i class="fa fa-exclamation-circle"></i> Send empty payload message on error</label>
+        <input type="checkbox" id="node-input-sendonerror" style="max-width:20px">
+        <p>If disabled, node will only send error message from the error output</p>
     </div>
 </script>
 

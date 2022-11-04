@@ -9,9 +9,6 @@ module.exports = function(RED) {
             mewclient.on('connect', ()=>{
                 node.status({fill:"green",shape:"dot",text:"connected"});
             });
-            mewclient.on('disconnect', ()=>{
-                node.status({fill:"grey",shape:"ring",text:"disconnected"});
-            });
             mewclient.on('error', ()=>{
                 node.status({fill:"red",shape:"dot",text:"error"});
             });
@@ -28,10 +25,17 @@ module.exports = function(RED) {
             .then(function(data){
                 msg.payload=data;
                 node.send([msg,null]);
+                node.status({});
                 return mewclient.destroy();
             })
             .catch(function(err){
-                node.send([null,err]);
+                if (config.sendonerror){
+                    msg.payload="";
+                    node.send([msg,err]);
+                }
+                else {
+                    node.send([null,err]);
+                }
                 node.status({fill:"red",shape:"dot",text:"error"});
                 node.error(err);
                 return mewclient.destroy();

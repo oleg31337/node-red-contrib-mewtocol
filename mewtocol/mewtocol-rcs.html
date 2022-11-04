@@ -7,7 +7,8 @@
             server: {value:"", type:"mewtocol-client", required:true},
             station: {value:1},
             area: {value:"X"},
-            address: {value:""}
+            address: {value:""},
+            sendonerror: {value:true}
         },
         inputs:1,
         outputs:2,
@@ -37,24 +38,29 @@
 
 <script type="text/html" data-template-name="mewtocol-rcs">
     <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <label style="min-width:110px" for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-server"><i class="fa fa-microchip"></i> Server</label>
+        <label style="min-width:110px" for="node-input-server"><i class="fa fa-microchip"></i> Server</label>
         <input type="text" id="node-input-server" placeholder="Server">
     </div>
     <div class="form-row">
-        <label for="node-input-station"><i class="fa fa-tag"></i> Station</label>
+        <label style="min-width:110px" for="node-input-station"><i class="fa fa-tag"></i> Station</label>
         <input type="text" id="node-input-station" placeholder="Station">
     </div>
     <div class="form-row">
-        <label for="node-input-area"><i class="fa fa-map"></i> Memory area</label>
+        <label style="min-width:110px" for="node-input-area"><i class="fa fa-map"></i> Memory area</label>
         <input type="text" id="node-input-area" placeholder="Memory area">
     </div>
     <div class="form-row">
-        <label for="node-input-address"><i class="fa fa-arrow-circle-left"></i> Address</label>
+        <label style="min-width:110px" for="node-input-address"><i class="fa fa-arrow-circle-left"></i> Address</label>
         <input type="text" id="node-input-address" placeholder="Address">
+    </div>
+    <div class="form-row">
+        <label style="min-width:265px" for="node-input-sendonerror"><i class="fa fa-exclamation-circle"></i> Send empty payload message on error</label>
+        <input type="checkbox" id="node-input-sendonerror" style="max-width:20px">
+        <p>If disabled, node will only send error message from the error output</p>
     </div>
 </script>
 
